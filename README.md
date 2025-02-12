@@ -40,7 +40,7 @@ To run the runner, from the **/bin** directory, open an administrator powershell
 
 ## Installing the runner as a service in windows
 
-> [set-up runner as a service in windows ](https://confluence.atlassian.com/bbkb/bitbucket-cloud-pipelines-set-up-runners-for-windows-as-a-windows-service-1223821219.html)
+> [set-up runner as a service in windows](https://confluence.atlassian.com/bbkb/bitbucket-cloud-pipelines-set-up-runners-for-windows-as-a-windows-service-1223821219.html)
 
 Microsoft provides an option called Windows service to enable background tasks and long-running applications to run continuously and independently of user interaction. They are designed to start automatically when the operating system boots up and runs in the background without any user interface.
 
@@ -112,4 +112,4 @@ cd path_to\bitbucket-pipelines-runner
 .\ws-runner.exe install ws-runner.xml 
 ```
 
-Open the **Services** Window and start the service. 
+Open the **Services** Window and start the service.
