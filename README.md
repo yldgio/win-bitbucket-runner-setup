@@ -1,23 +1,23 @@
-# install bitbucket runner on Windows
+# Install Bitbucket Runner on Windows
 
 ## Prerequisites
 
-Checkout the official docs and verify all dependencies are met:
+Check out the official docs and verify all dependencies are met:
 [Set up runners for Windows](https://support.atlassian.com/bitbucket-cloud/docs/set-up-runners-for-windows/)
 
-from administrator powershell console, run: `.\Insall-Prerequisites.ps1`
+From administrator PowerShell console, run: `.\Install-Prerequisites.ps1`
 
-this should install the prerequisites defined in [choco-packages](choco-packages.config)
+This should install the prerequisites defined in [choco-packages](choco-packages.config)
 
 ## Configure and Prepare Runner
 
-On the Bitbucket cloud web app, from the Runner secion in the repository/workspace settings, add a runner and follow the wizard steps, untill the powershell script step.
+On the Bitbucket cloud web app, from the Runner section in the repository/workspace settings, add a runner and follow the wizard steps until the PowerShell script step.
 
-Copy the `start.ps1` line, take note of parameters (account, repository, runner uuid and authentication).
+Copy the `start.ps1` line and take note of parameters (account, repository, runner UUID and authentication).
 
-## Running the runner
+## Running the Runner
 
-Open a powershell terminal in the folder where you would like to install the runner (ex: c:\users\your_user_name\runners) and download the latest version of the runner. Example:
+Open a PowerShell terminal in the folder where you would like to install the runner (e.g., C:\Users\your_user_name\runners) and download the latest version of the runner. Example:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser  
@@ -29,22 +29,22 @@ Expand-Archive .\bitbucket-pipelines-runner.zip
 
 > ### NOTE
 >
-> Verify the versione of the runner, the download instructions are in the wizard
+> Verify the version of the runner, the download instructions are in the wizard
 >
 
-To run the runner, from the **/bin** directory, open an administrator powershell console and type the instruction copied from the wizard, ie:
+To run the runner, from the **/bin** directory, open an administrator PowerShell console and type the instruction copied from the wizard, i.e.:
 
 ```powershell
 .\start.ps1 -accountUuid '{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx}' -repositoryUuid '{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx}' -runnerUuid '{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx}' -OAuthClientId xxxxxxxxxxxxxxx -OAuthClientSecret xxxxxxxxxxxxxxxxxx -workingDirectory '..\temp'
 ```
 
-## Installing the runner as a service in windows
+## Installing the Runner as a Service in Windows
 
 > [set-up runner as a service in windows](https://confluence.atlassian.com/bbkb/bitbucket-cloud-pipelines-set-up-runners-for-windows-as-a-windows-service-1223821219.html)
 
-Microsoft provides an option called Windows service to enable background tasks and long-running applications to run continuously and independently of user interaction. They are designed to start automatically when the operating system boots up and runs in the background without any user interface.
+Microsoft provides an option called Windows Service to enable background tasks and long-running applications to run continuously and independently of user interaction. These services are designed to start automatically when the operating system boots up and run in the background without any user interface.
 
-The runners' script is not packaged to run as a Windows service, but there are third-party solutions available to run the runners launch script as a Windows OS service.
+The runner's script is not packaged to run as a Windows service, but there are third-party solutions available to run the runner's launch script as a Windows OS service.
 
 A third-party [WinSW](https://github.com/winsw/winsw) wrapper can be used to run the runner as a Windows service, which ensures that logging off will not have any impact on the runner's status. One can download the wrapper from the repository.
 
