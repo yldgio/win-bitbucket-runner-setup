@@ -1,0 +1,10 @@
+<service>  
+      <id>BitbucketLumesiaAgiclocal</id> 
+      <name>Lumesia agiclocal Bitbucket Runner </name>  
+      <description>Wrapper for JAVA based Bitbucket Runner</description>
+      <executable>java</executable>  
+      <arguments>-jar -Dbitbucket.pipelines.runner.account.uuid={xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx} -Dbitbucket.pipelines.runner.repository.uuid={xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx} -Dbitbucket.pipelines.runner.uuid={xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx} -Dbitbucket.pipelines.runner.environment=PRODUCTION -Dbitbucket.pipelines.runner.oauth.client.id=xxxxxxxxxxxxxx -Dbitbucket.pipelines.runner.oauth.client.secret=xxxxxxxxxxxxxx -Dbitbucket.pipelines.runner.directory.working=..\temp -Dbitbucket.pipelines.runner.runtime=windows-powershell -Dbitbucket.pipelines.runner.scheduled.state.update.initial.delay.seconds=0 -Dbitbucket.pipelines.runner.scheduled.state.update.period.seconds=30 -Dbitbucket.pipelines.runner.cleanup.previous.folders=false -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 ./bin/runner.jar</arguments>  
+    <log mode="roll"></log>  
+    <logpath>%BASE%\logs</logpath>  
+    <stopparentprocessfirst>true</stopparentprocessfirst>
+</service> 
