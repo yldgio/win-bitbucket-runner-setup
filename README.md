@@ -15,7 +15,7 @@ On the Bitbucket cloud web app, from the Runner section in the repository/worksp
 
 Copy the `start.ps1` line and take note of parameters (account, repository, runner UUID and authentication).
 
-## Running the Runner
+## Running the Runner 'once'
 
 Open a PowerShell terminal in the folder where you would like to install the runner (e.g., C:\Users\your_user_name\runners) and download the latest version of the runner. Example:
 
